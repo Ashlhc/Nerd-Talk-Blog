@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS nerdtalk_db;
+
+CREATE DATABASE nerdtalk_db;
