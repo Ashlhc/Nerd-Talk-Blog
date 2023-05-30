@@ -1,15 +1,23 @@
 {
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
     "connect-session-sequelize": "^7.1.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
     "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
+    "helpers": "^0.0.6",
+    "list": "^2.0.19",
     "mysql": "^2.18.1",
     "mysql2": "^3.3.1",
     "sequelize": "^6.31.1",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "withauth": "^1.0.0"
   }
 }
