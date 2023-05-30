@@ -10,11 +10,11 @@ const helpers = require('./utils/helpers');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3001;
 
 //setup session
 const sess = {
-  secret: 'supersecretsecret',
+  secret: 'super secret secret',
   cookie: { maxAge: 180000},
   resave: false,
   saveUninitialized: true,

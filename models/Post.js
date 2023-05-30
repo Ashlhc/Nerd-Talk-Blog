@@ -9,20 +9,21 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    post_content: {
+    post_text: {
       type: DataTypes.STRING,
+      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id',
+        key: 'id'
       }
     }
   },
@@ -32,6 +33,6 @@ Post.init(
     underscored: true,
     modelName: 'post'
   }
-);
+)
 
 module.exports = Post;
