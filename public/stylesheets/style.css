@@ -7,7 +7,7 @@
    padding: 0;
    margin: 0;
    font-family: sans-serif;
-   color: #333;
+   color: #5e9c85;
  }
  
  a {
@@ -15,6 +15,9 @@
    color: #361f3b;
    font-weight: bold;
    transition: color .1s;
+ }
+ #home,#dashboard,#login,#logout {
+  color:#6ccaa8
  }
  
  a:hover {
@@ -27,7 +30,7 @@
  
  .home-title {
    font-size: 3rem;
-   color: #325347;
+   color: #5e9c85;
    background-color: #361f3b;
    padding: 10px;
    display: inline-block;
@@ -36,7 +39,7 @@
  }
  
  button {
-   background-color: #225ca3;
+   background-color: #5e9c85;
    border: 0;
    padding: 1%;
    color: #361f3b;
@@ -78,6 +81,7 @@
  }
  
  form label {
+   color:#6ccaa8;
    display: block;
  }
  
@@ -109,7 +113,9 @@
    padding: 2% 4%;
    background-color: #361f3b;
  }
- 
+ h2{
+  color:#6ccaa8;
+ }
  .btn-no-style {
    background: none;
    border: none;
@@ -151,6 +157,7 @@
  }
  
  .title {  
+
    font-size: 150%;  
    margin: 2px;
  }
@@ -165,7 +172,9 @@
    background-color: #5e9c85;
    padding: 3px;
  }
- 
+ #title-post {
+  color:#6ccaa8;
+ }
  .edit-link {
    display: block;
    margin: -1.5% 0 2% 0;
@@ -213,4 +222,6 @@
    justify-content: center;
    padding: 1%;
    font-size: 110%;
+   background-color: #325347;
+   color: #5e9c85;
  }

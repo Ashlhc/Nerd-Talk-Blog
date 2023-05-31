@@ -13,12 +13,12 @@
     <header>
       <div>
         <nav>
-          <a href="/">Home</a>
-          <a href="/dashboard">Dashboard</a>
+          <a href="/" id="home">Home</a>
+          <a href="/dashboard" id="dashboard">Dashboard</a>
           {{#if loggedIn}}
           <a href="/" id="logout">Logout</a>
           {{else}}
-          <a href="/login">Login</a>
+          <a href="/login" id="login">Login</a>
           {{/if}}
         </nav>
       </div>
@@ -30,7 +30,7 @@
       {{{ body }}}
     </main>
     <footer>
-      Thanks for visiting my page!
+      Thankyou for visiting my page!
     </footer>
   </div>
   {{#if loggedIn}}
