@@ -24,7 +24,7 @@ async function signupFormHandler(event) {
     }
   }  
 }
-
+// comment for commit
 async function loginFormHandler(event) {
   event.preventDefault();
 
