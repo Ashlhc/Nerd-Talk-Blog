@@ -1,30 +1,47 @@
-const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comments');
+const sequelize = require("../config/connection");
 
-//Associations
-User.hasMany(Post, {
-  foreignKey: 'user_id'
-});
+const Comment = require("./Comment")
+const Post = require("./Post")
+const User = require("./User")
 
-Post.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+// Comment [One] to Post [Many]
+Comment.belongsTo(Post,{
+    foreignKey: {
+        allowNull: false
+    }
+})
+Post.hasMany(Comment,{
+    foreignKey: {
+        allowNull: false
+    }
+})
 
-Comment.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+// Post [One] to User [Many]
+Post.belongsTo(User,{
+    foreignKey: {
+        allowNull: false
+    }
+})
+User.hasMany(Post,{
+    foreignKey: {
+        allowNull: false
+    }
+})
 
-Comment.belongsTo(Post, {
-  foreignKey: 'post_id'
-});
+// Comment [One] to User [Many]
+Comment.belongsTo(User,{
+    foreignKey: {
+        allowNull: false
+    }
+})
+User.hasMany(Comment,{
+    foreignKey: {
+        allowNull: false
+    }
+})
 
-User.hasMany(Comment, {
-  foreignKey: 'user_id'
-});
-
-Post.hasMany(Comment, {
-  foreignKey: 'post_id'
-});
-
-module.exports = { User, Post, Comment };
+module.exports = {
+    Comment,
+    Post,
+    User
+}

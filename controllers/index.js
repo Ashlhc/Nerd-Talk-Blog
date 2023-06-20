@@ -1,15 +1,19 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const apiRoutes = require('./api');
-const homeRoutes = require('./home-routes');
-const dashboardRoutes = require('./dashboard-routes');
+const apiRoutes = require("./api");
+const viewRoutes = require("./viewController");
 
-router.use('/api', apiRoutes);
-router.use('/', homeRoutes);
-router.use('/dashboard', dashboardRoutes);
+router.use("/api",apiRoutes);
+router.use("/",viewRoutes);
 
-router.use((req,res)=>{
-    res.status(404).end();
-})
+// Route used to grab the session data
+router.get("/sessiondata",(req,res)=>{
+    res.json(req.session);
+});
+
+// Redirects any queries to any non-specified route to the home page
+router.use("*",(req,res)=>{
+    res.redirect("/home");
+});
 
 module.exports = router;

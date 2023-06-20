@@ -1,3 +1,4 @@
+{{!-- has other's blog posts. DONE --}}
 <ul>
     {{#each posts as |post|}}
         <a href="/post/{{post.id}}">
@@ -14,12 +15,3 @@
         </a>
     {{/each}}
 </ul>
-
-{{!-- Form for adding new posts --}}
-<form id="new-post">
-    <input type="text" placeholder="Post Title">
-    <textarea rows="5" placeholder="Post Body"></textarea>
-    <button type="submit">Add Post</button>
-</form>
-
-<script src="/javascript/dashboard.js"></script>

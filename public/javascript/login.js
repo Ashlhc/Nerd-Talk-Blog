@@ -1,53 +1,51 @@
-async function signupFormHandler(event) {
-  event.preventDefault();
+const login = document.querySelector("#login");
 
-  const username = document.querySelector('#username-signup').value.trim();  
-  const password = document.querySelector('#password-signup').value.trim();
+login.addEventListener("submit",loginHandler);
 
-  if (username && password) {
-    const response = await fetch('/api/users', {
-      method: 'post',
-      body: JSON.stringify({
-        username,
-        password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
+async function loginHandler(event) {
+    event.preventDefault();
 
-    //check if the response status
-    if (response.ok) {
-      console.log('success');
-      alert('New user created you can now log in');
-      document.location.reload();
+    // Grabs and trims the input values
+    const loginUsername = login.children[1].value.trim()
+    const loginPassword = login.children[3].value.trim()
+
+
+    if (loginUsername && loginPassword) {
+
+        // POSTs the login data
+        const loginResponse = await fetch("/api/users/login",{
+            method: "POST",
+            body: JSON.stringify({
+                name: loginUsername,
+                password: loginPassword
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (loginResponse.ok){
+            window.location.href = "/dashboard"
+        }
+
+        // TODO: Add error catching on this fetch
+
     } else {
-      alert(response.statusText);
+        // If the username and password fields are not filled out
+
+        const alert = login.lastElementChild
+        const newAlert = document.createElement("p");
+
+        if (alert.classList.contains("alert")) {
+            // Plays an error animation on the warning if clicked again
+            alert.classList.add("error")
+            setTimeout(()=>{alert.classList.remove("error")},100)
+        } else {
+            // Appends a warning to the page
+            newAlert.textContent = "Both fields must be filled";
+            newAlert.classList.add("alert")
+            login.appendChild(newAlert)
+        }
     }
-  }  
+    
 }
-// comment for commit
-async function loginFormHandler(event) {
-  event.preventDefault();
-
-  const username = document.querySelector('#username-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
-
-  if (username && password) {
-    const response = await fetch('/api/users/login', {
-      method: 'post',
-      body: JSON.stringify({
-        username,
-        password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
-  }
-}
-
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

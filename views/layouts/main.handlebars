@@ -1,41 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nerd Talk Blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <title>Nerd Talk Blog</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+
+    {{!-- Favicon Links --}}
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
 </head>
 
 <body>
-  <div class="wrapper">
     <header>
-      <div>
+        <h1>Nerd Talk Blog</h1>
         <nav>
-          <a href="/" id="home">Home</a>
-          <a href="/dashboard" id="dashboard">Dashboard</a>
-          {{#if loggedIn}}
-          <a href="/" id="logout">Logout</a>
-          {{else}}
-          <a href="/login" id="login">Login</a>
-          {{/if}}
+            <a href="/home"><h2>Home</h2></a>
+            <a href="/dashboard"><h2>Dashboard</h2></a>
+            <a href={{#unless cookie.logged_in}}"/login"{{/unless}}><h2 {{#if cookie.logged_in}}id="logout"{{/if}}>{{#if cookie.logged_in}}Log Out{{else}}Log In{{/if}}</h2></a>
         </nav>
-      </div>
-      <div>
-        <h1 class="home-title">Nerd Talk Blog</h1>
-      </div>
-    </header>
+    </header>    
     <main>
-      {{{ body }}}
+        {{{ body }}}
     </main>
-    <footer>
-      Thankyou for visiting my page!
-    </footer>
-  </div>
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
+    <script src="/javascript/script.js"></script>
 </body>
-
-</html>
